@@ -1,4 +1,6 @@
 import ticketTypes from './ticketTypesRoutes.js';
+import priorities from './prioritiesRoutes.js';
+import ticketStatus from './ticketStatusRoutes.js';
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -8,7 +10,9 @@ const routes = (app) => {
     });
 
     app.use(
-        ticketTypes
+        ticketTypes,
+        priorities,
+        ticketStatus
     );
 };
 
