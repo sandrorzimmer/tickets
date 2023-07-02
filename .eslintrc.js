@@ -28,6 +28,8 @@ module.exports = {
             'always'
         ],
         'no-undef': 'off',
-        'no-unused-vars': 'off'
+        'no-unused-vars': 'off',
+        'no-trailing-spaces': 'error',
+        'no-multiple-empty-lines': ['error', { 'max': 1 }]
     }
 };

@@ -1,5 +1,4 @@
-
-
+import ticketTypes from './ticketTypesRoutes.js';
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -7,6 +6,10 @@ const routes = (app) => {
             title: 'Tickets'
         });
     });
+
+    app.use(
+        ticketTypes
+    );
 };
 
 export default routes;
