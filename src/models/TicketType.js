@@ -6,6 +6,8 @@ const ticketTypeSchema = new mongoose.Schema(
         name: {
             type: String,
             required: [true, 'A ticket type name is required.'],
+            unique: true,
+            trim: true,
             validate: {
                 validator: function (name) {
                     return name.trim().length > 0;

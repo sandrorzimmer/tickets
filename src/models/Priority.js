@@ -6,6 +6,8 @@ const prioritySchema = new mongoose.Schema(
         name: {
             type: String,
             required: [true, 'A priority name is required.'],
+            unique: true,
+            trim: true,
             validate: {
                 validator: function (name) {
                     return name.trim().length > 0;

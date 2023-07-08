@@ -1,18 +1,18 @@
 import mongoose from 'mongoose';
 
-const ticketStatusSchema = new mongoose.Schema(
+const userRoleSchema = new mongoose.Schema(
     {
         id: { type: String },
         name: {
             type: String,
-            required: [true, 'A ticket status name is required.'],
+            required: [true, 'A user role name is required.'],
             unique: true,
             trim: true,
             validate: {
                 validator: function (name) {
                     return name.trim().length > 0;
                 },
-                message: 'Ticket status cannot be blank.'
+                message: 'User role cannot be blank.'
             }
         },
         createdAt: {
@@ -29,11 +29,11 @@ const ticketStatusSchema = new mongoose.Schema(
     }
 );
 
-ticketStatusSchema.pre('save', function (next) {
+userRoleSchema.pre('save', function (next) {
     this.updatedAt = new Date();
     next();
 });
 
-const TicketStatus = mongoose.model('TicketStatus', ticketStatusSchema);
+const UserRole = mongoose.model('UserRole', userRoleSchema);
 
-export default TicketStatus;
+export default UserRole;
