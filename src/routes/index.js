@@ -4,6 +4,7 @@ import ticketStatus from './ticketStatusRoutes.js';
 import userRoles from './userRolesRoutes.js';
 import userGroups from './userGroupsRoutes.js';
 import users from './userRoutes.js';
+import clients from './clientsRoutes.js';
 
 const routes = (app) => {
     app.route('/').get((req, res) => {
@@ -18,7 +19,8 @@ const routes = (app) => {
         ticketStatus,
         userRoles,
         userGroups,
-        users
+        users,
+        clients
     );
 };
 
