@@ -45,9 +45,6 @@ class TicketController {
             const existingAuthor = await User.findById(author);
             const existingResponsible = await User.findById(responsible);
 
-            console.log(client);
-            console.log(existingClient);
-
             if (!existingTicketType) {
                 return next(new BadRequest('Invalid ticket type.'));
             }

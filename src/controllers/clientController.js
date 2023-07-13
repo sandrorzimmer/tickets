@@ -1,3 +1,4 @@
+import BadRequest from '../errors/BadRequest.js';
 import NotFound from '../errors/NotFound.js';
 import Client from '../models/Client.js';
 
@@ -32,6 +33,14 @@ class ClientController {
 
     static addOne = async (req, res, next) => {
         try {
+            const { companyNumber } = req.body;
+
+            const existingCompanyNumber = await Client.findOne({ companyNumber });
+
+            if (existingCompanyNumber) {
+                return next(new BadRequest('This company number is already used.'));
+            }
+
             const newOne = new Client(req.body);
 
             const result = await newOne.save();
@@ -46,6 +55,17 @@ class ClientController {
         try {
             const id = req.params.id;
             const updatedOne = req.body;
+            const { companyNumber } = req.body;
+
+            if (companyNumber) {
+                const existingCompanyNumber = await Client.findOne({
+                    companyNumber,
+                    _id: { $ne: id }
+                });
+                if (existingCompanyNumber) {
+                    return next(new BadRequest('This company number is already used.'));
+                }
+            }
 
             const result = await Client.findByIdAndUpdate(id, updatedOne, { new: true });
 

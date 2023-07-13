@@ -40,6 +40,7 @@ const clientSchema = new mongoose.Schema(
         companyNumber: {
             type: String,
             required: [true, 'A CNPJ, CPF or equivalent number is required.'],
+            unique: true,
             trim: true,
             validate: {
                 validator: function (companyNumber) {
