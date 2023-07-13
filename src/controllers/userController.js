@@ -69,25 +69,31 @@ class UserController {
             const id = req.params.id;
             const updatedOne = req.body;
             const { userName, userRole, userGroup } = updatedOne;
-            const existingRole = await UserRole.findById(userRole);
-            const existingGroup = await UserGroup.findById(userGroup);
 
             // Ensure that the username is unique, except for the current user being updated
-            const existingUser = await User.findOne({
-                userName,
-                _id: { $ne: id }
-            });
 
-            if (existingUser) {
-                return next(new BadRequest('This username is already used.'));
+            if (userName) {
+                const existingUser = await User.findOne({
+                    userName,
+                    _id: { $ne: id }
+                });
+                if (existingUser) {
+                    return next(new BadRequest('This username is already used.'));
+                }
             }
 
-            if (!existingRole) {
-                return next(new BadRequest('Invalid role.'));
+            if (userRole) {
+                const existingRole = await UserRole.findById(userRole);
+                if (!existingRole) {
+                    return next(new BadRequest('Invalid role.'));
+                }
             }
 
-            if (!existingGroup) {
-                return next(new BadRequest('Invalid group.'));
+            if (userGroup) {
+                const existingGroup = await UserGroup.findById(userGroup);
+                if (!existingGroup) {
+                    return next(new BadRequest('Invalid group.'));
+                }
             }
 
             // Hash the new password before updating

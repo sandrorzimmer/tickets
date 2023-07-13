@@ -44,13 +44,13 @@ const userSchema = new mongoose.Schema(
         userRole: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'UserRole',
-            required: true,
+            required: [true, 'A user role is required.'],
             autopopulate: { select: 'id name' }
         },
         userGroup: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'UserGroup',
-            required: true,
+            required: [true, 'A user group is required.'],
             autopopulate: { select: 'id name' }
         },
         createdAt: {
