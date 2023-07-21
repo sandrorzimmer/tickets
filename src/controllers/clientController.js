@@ -33,12 +33,18 @@ class ClientController {
 
     static addOne = async (req, res, next) => {
         try {
-            const { companyNumber } = req.body;
+            const { name, companyNumber } = req.body;
 
             const existingCompanyNumber = await Client.findOne({ companyNumber });
 
             if (existingCompanyNumber) {
                 return next(new BadRequest('This company number is already used.'));
+            }
+
+            const existingName = await Client.findOne({ name });
+
+            if (existingName) {
+                return next(new BadRequest('This company name is already used.'));
             }
 
             const newOne = new Client(req.body);

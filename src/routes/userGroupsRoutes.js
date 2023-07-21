@@ -5,10 +5,10 @@ import paginate from '../middlewares/paginator.js';
 const router = express.Router();
 
 router
-    .get('/userGroups', userGroupController.showAll, paginate)
-    .get('/userGroups/:id', userGroupController.showOneById)
-    .post('/userGroups', userGroupController.addOne)
-    .put('/userGroups/:id', userGroupController.updateOne)
-    .delete('/userGroups/:id', userGroupController.deleteOne);
+    .get('/userGroups', checkAccess('readAny', 'userGroup'), userGroupController.showAll, paginate)
+    .get('/userGroups/:id', checkAccess('readAny', 'userGroup'), userGroupController.showOneById)
+    .post('/userGroups', checkAccess('createAny', 'userGroup'), userGroupController.addOne)
+    .put('/userGroups/:id', checkAccess('updateAny', 'userGroup'), userGroupController.updateOne)
+    .delete('/userGroups/:id', checkAccess('deleteAny', 'userGroup'), userGroupController.deleteOne);
 
 export default router;

@@ -5,10 +5,10 @@ import paginate from '../middlewares/paginator.js';
 const router = express.Router();
 
 router
-    .get('/priorities', PriorityController.showAll, paginate)
-    .get('/priorities/:id', PriorityController.showOneById)
-    .post('/priorities', PriorityController.addOne)
-    .put('/priorities/:id', PriorityController.updateOne)
-    .delete('/priorities/:id', PriorityController.deleteOne);
+    .get('/priorities', checkAccess('readAny', 'priority'), PriorityController.showAll, paginate)
+    .get('/priorities/:id', checkAccess('readAny', 'priority'), PriorityController.showOneById)
+    .post('/priorities', checkAccess('createAny', 'priority'), PriorityController.addOne)
+    .put('/priorities/:id', checkAccess('updateAny', 'priority'), PriorityController.updateOne)
+    .delete('/priorities/:id', checkAccess('deleteAny', 'priority'), PriorityController.deleteOne);
 
 export default router;
