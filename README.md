@@ -1,8 +1,61 @@
-# **Client Support Tickets API Documentation**
+# **Ticket Service Manager API**
 
 ## **Overview**
 
 This API allows you to manage client support tickets efficiently. You can create, retrieve, update, and delete tickets using this API. It follows RESTful principles and provides responses in JSON format.
+
+# Table of Contents
+
+
+- [**Ticket Service Manager API**](#ticket-service-manager-api)
+  - [**Overview**](#overview)
+- [Table of Contents](#table-of-contents)
+  - [**Technologies Used**](#technologies-used)
+  - [**How to Install and Run**](#how-to-install-and-run)
+  - [**API Endpoints**](#api-endpoints)
+    - [**Authentication**](#authentication)
+    - [**Ticket Endpoints**](#ticket-endpoints)
+      - [**Endpoint**: **`/api/tickets`**](#endpoint-apitickets)
+      - [**Endpoint**: **`/api/tickets/search`**](#endpoint-apiticketssearch)
+      - [**Endpoint**: **`/api/tickets/{ticket_id}`**](#endpoint-apiticketsticket_id)
+      - [**Endpoint**: **`/api/tickets`**](#endpoint-apitickets-1)
+      - [**Endpoint**: **`/api/tickets/{ticket_id}`**](#endpoint-apiticketsticket_id-1)
+      - [**Endpoint**: **`/api/tickets/{ticket_id}`**](#endpoint-apiticketsticket_id-2)
+    - [**Client endpoints**](#client-endpoints)
+      - [**Endpoint**: **`/api/clients`**](#endpoint-apiclients)
+      - [**Endpoint**: **`/api/clients/{client_id}`**](#endpoint-apiclientsclient_id)
+      - [**Endpoint**: **`/api/clients`**](#endpoint-apiclients-1)
+      - [**Endpoint**: **`/api/clients/{client_id}`**](#endpoint-apiclientsclient_id-1)
+      - [**Endpoint**: **`/api/clients/{client_id}`**](#endpoint-apiclientsclient_id-2)
+    - [**User endpoints**](#user-endpoints)
+      - [**Endpoint**: **`/api/users`**](#endpoint-apiusers)
+      - [**Endpoint**: **`/api/users/{user_id}`**](#endpoint-apiusersuser_id)
+      - [**Endpoint**: **`/api/users`**](#endpoint-apiusers-1)
+      - [**Endpoint**: **`/api/users/{user_id}`**](#endpoint-apiusersuser_id-1)
+      - [**Endpoint**: **`/api/users/{user_id}`**](#endpoint-apiusersuser_id-2)
+    - [**Priority endpoints**](#priority-endpoints)
+      - [**Endpoint**: **`/api/priorities`**](#endpoint-apipriorities)
+      - [**Endpoint**: **`/api/priorities/{priority_id}`**](#endpoint-apiprioritiespriority_id)
+      - [**Endpoint**: **`/api/priorities`**](#endpoint-apipriorities-1)
+      - [**Endpoint**: **`/api/priorities/{priority_id}`**](#endpoint-apiprioritiespriority_id-1)
+      - [**Endpoint**: **`/api/priorities/{priority_id}`**](#endpoint-apiprioritiespriority_id-2)
+    - [**Ticket status endpoints**](#ticket-status-endpoints)
+    - [**Ticket type endpoints**](#ticket-type-endpoints)
+    - [**User group endpoints**](#user-group-endpoints)
+    - [**User role endpoints**](#user-role-endpoints)
+  - [**Error Handling**](#error-handling)
+- [Security](#security)
+  - [Authentication](#authentication-1)
+  - [Password entry](#password-entry)
+  - [Password storage](#password-storage)
+  - [Access control](#access-control)
+- [Testing](#testing)
+- [Contribution](#contribution)
+  - [Bug reports](#bug-reports)
+  - [Feature requests](#feature-requests)
+  - [Pull requests](#pull-requests)
+- [License](#license)
+
 
 ## **Technologies Used**
 
