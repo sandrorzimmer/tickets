@@ -142,6 +142,41 @@ class TicketController {
             next(error);
         }
     };
+
+    static showByFilter = async (req, res, next) => {
+        try {
+            const search = await ticketSearchHandling(req.query);
+
+            if (search !== null) {
+                const result = Ticket.find(search);
+
+                req.result = result;
+
+                next();
+            } else {
+                res.status(200).json([]);
+            }
+        } catch (error) {
+            next(error);
+        }
+    };
+}
+
+async function ticketSearchHandling(params) {
+    const {
+        title,
+        description,
+        solution
+    } = params;
+
+    let search = {};
+
+    if (title) search.title = { $regex: title, $options: 'i' };
+    if (description) search.description = { $regex: description, $options: 'i' };
+    if (solution) search.solution = { $regex: solution, $options: 'i' };
+
+    return search;
+
 }
 
 export default TicketController;

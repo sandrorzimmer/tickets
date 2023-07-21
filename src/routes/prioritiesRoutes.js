@@ -1,6 +1,7 @@
 import express from 'express';
 import PriorityController from '../controllers/priorityController.js';
 import paginate from '../middlewares/paginator.js';
+import checkAccess from '../middlewares/checkAccess.js';
 
 const router = express.Router();
 
