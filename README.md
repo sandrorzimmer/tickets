@@ -4,12 +4,12 @@
 
 This API allows you to manage client support tickets efficiently. You can create, retrieve, update, and delete tickets using this API. It follows RESTful principles and provides responses in JSON format.
 
-# Table of Contents
+# **Table of Contents**
 
 
 - [**Ticket Service Manager API**](#ticket-service-manager-api)
   - [**Overview**](#overview)
-- [Table of Contents](#table-of-contents)
+- [**Table of Contents**](#table-of-contents)
   - [**Technologies Used**](#technologies-used)
   - [**How to Install and Run**](#how-to-install-and-run)
   - [**API Endpoints**](#api-endpoints)
@@ -44,17 +44,17 @@ This API allows you to manage client support tickets efficiently. You can create
     - [**User group endpoints**](#user-group-endpoints)
     - [**User role endpoints**](#user-role-endpoints)
   - [**Error Handling**](#error-handling)
-- [Security](#security)
-  - [Authentication](#authentication-1)
-  - [Password entry](#password-entry)
-  - [Password storage](#password-storage)
-  - [Access control](#access-control)
-- [Testing](#testing)
-- [Contribution](#contribution)
-  - [Bug reports](#bug-reports)
-  - [Feature requests](#feature-requests)
-  - [Pull requests](#pull-requests)
-- [License](#license)
+- [**Security**](#security)
+  - [**Authentication**](#authentication-1)
+  - [**Password entry**](#password-entry)
+  - [**Password storage**](#password-storage)
+  - [**Access control**](#access-control)
+- [**Testing**](#testing)
+- [**Contribution**](#contribution)
+  - [**Bug reports**](#bug-reports)
+  - [**Feature requests**](#feature-requests)
+  - [**Pull requests**](#pull-requests)
+- [**License**](#license)
 
 
 ## **Technologies Used**
@@ -451,11 +451,11 @@ The API uses the following set of status responses and error messages according 
 - **status: 500 - message: Internal server error**
     - An unexpected error has occurred on the server while processing the request.
 
-# Security
+# **Security**
 
 The API uses best practices of security for authetication and access control.
 
-## Authentication
+## **Authentication**
 
 The authentication proccess is based on **JSON Web Token - JWT**.
 
@@ -465,7 +465,7 @@ The client can store this token and include it in subsequent API requests to gai
 
 It is important to ensure that your JWT secret (process.env.JWT_SECRET) is kept secure and not exposed to unauthorized users, as this is essential for token validation and security. Additionally, you should set a proper expiration time (process.env.JWT_EXPIRATION) to control the lifespan of the JWT token and enhance security.
 
-## Password entry
+## **Password entry**
 
 The user must provide a password complying with specific rules that are validated when a new user is created or the user password is updated.
 
@@ -476,7 +476,7 @@ The password is validated by a function which tests if the password contains at 
 3. One uppercase letter.
 4. One number.
 
-## Password storage
+## **Password storage**
 
 The API provides best practices of encryption and storage for password, securely hashing and salting passwords before saving on the database, using bcrypt library. It prevents password information leaking even if an unauthorized access to database occurs.
 
@@ -486,7 +486,7 @@ The API provides best practices of encryption and storage for password, securely
 
 3. Password Verification: When a user attempts to log in, the provided password is hashed using the same algorithm and salt, and the resulting hash is compared with the stored hash in the database. If the two hashes match, it means the provided password is correct, and access is granted.
 
-## Access control
+## **Access control**
 
 Access control is an essential part of secutiry that involves managing different user roles and permissions. It is called role-based access control - RBAC.
 
@@ -495,15 +495,15 @@ The API defines three basic roles:
 - supervisor: extends all permissions from user and it is also allowed to create and change client information.
 - admin: it is allowed to create, read, update and delete any information.
 
-# Testing
+# **Testing**
 
 This API does not currently provide automated tests. All performed tests were realized manually during development.
 
-# Contribution
+# **Contribution**
 
 Contributions are highly appreciated and help improve the project. To contribute, please follow these guidelines:
 
-## Bug reports
+## **Bug reports**
 
 If you encounter a bug or issue with the API, please help us by submitting a detailed bug report. Follow these steps to report a bug:
 
@@ -513,7 +513,7 @@ If you encounter a bug or issue with the API, please help us by submitting a det
 4. Include steps to reproduce the bug, along with any relevant code snippets or error messages.
 5. Add any additional context or information that might be helpful for understanding and resolving the issue.
 
-## Feature requests
+## **Feature requests**
 
 If you have a suggestion or would like to request a new feature for the Expenses API, please follow these steps:
 
@@ -522,7 +522,7 @@ If you have a suggestion or would like to request a new feature for the Expenses
 3. Clearly describe the feature you would like to see added and explain its purpose and potential benefits.
 4. Provide any relevant examples, use cases, or implementation details that can help in understanding the feature request.
 
-## Pull requests
+## **Pull requests**
 
 We welcome pull requests that address bug fixes, feature enhancements, or code improvements. To submit a pull request:
 
@@ -537,6 +537,6 @@ Please note that all contributions are subject to review and may require some it
 
 Thank you for considering contributing to the Expenses API! Your contributions play a valuable role in enhancing the API and making it more robust and feature-rich.
 
-# License
+# **License**
 
 This project is licensed under the **[MIT License](https://chat.openai.com/c/LICENSE)**.
